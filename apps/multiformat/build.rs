@@ -1,5 +1,15 @@
 use std::{env, path::PathBuf, process::Command};
 fn main() {
+    println!("cargo:rerun-if-env-changed=NCAE_EMBEDDED_BACKEND");
+    let bundle = PathBuf::from(env::var_os("OUT_DIR").unwrap()).join("embedded-backend.bin");
+    if let Some(source) = env::var_os("NCAE_EMBEDDED_BACKEND") {
+        let source = PathBuf::from(source);
+        println!("cargo:rerun-if-changed={}", source.display());
+        std::fs::copy(source, &bundle).expect("Cannot embed runtime bundle");
+    } else {
+        std::fs::write(&bundle, []).expect("Cannot create development runtime marker");
+    }
+
     println!("cargo:rerun-if-changed=assets/app.rc");
     println!("cargo:rerun-if-changed=assets/app-icon.ico");
     if env::var("CARGO_CFG_TARGET_OS").as_deref() != Ok("windows") {

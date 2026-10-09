@@ -29,14 +29,22 @@ jobs:
           $version = (Get-Content VERSION -Raw).Trim()
           if ($env:GITHUB_REF_TYPE -eq 'tag' -and $env:GITHUB_REF_NAME -ne "v$version") { throw 'Tag and VERSION disagree' }
           ./scripts/Build-Release.ps1 -Version $version
+      - name: Archive corresponding source
+        shell: pwsh
+        run: |
+          $version = (Get-Content VERSION -Raw).Trim()
+          git archive --format=zip --output="release/NCAE-Audio-Converter-$version-source.zip" HEAD
+          if ($LASTEXITCODE -ne 0) { throw 'Source archive failed' }
       - uses: actions/upload-artifact@v7
         with:
           name: windows-x64-release
           if-no-files-found: error
           compression-level: 0
           path: |
-            release/*.zip
-            release/*.sha256
+            release/*Multiformat*.exe
+            release/*Multiformat*.exe.sha256
+            release/*Multiformat*.exe.build-info.json
+            release/*source*.zip
   draft-release:
     needs: build
     if: startsWith(github.ref, 'refs/tags/v')
@@ -55,6 +63,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           $files = @(Get-ChildItem artifacts -File | ForEach-Object FullName)
-          $notes = "Windows x64 portable package. Verify SHA-256 and licensing before publishing."
+          $notes = "Windows x64 multiformat single EXE with embedded runtime; GPL-3.0 source included. Verify SHA-256 before publishing."
+          gh release view $env:GITHUB_REF_NAME --repo $env:GITHUB_REPOSITORY --json id 2>$null
+          if ($LASTEXITCODE -eq 0) { Write-Output 'Existing release preserved; no attachments overwritten.'; exit 0 }
           gh release create $env:GITHUB_REF_NAME @files --repo $env:GITHUB_REPOSITORY --title "NCAE Audio Converter $env:GITHUB_REF_NAME" --notes $notes --draft
           if ($LASTEXITCODE -ne 0) { throw 'Draft release creation failed; existing releases are never overwritten automatically' }

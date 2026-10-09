@@ -1,28 +1,28 @@
-name: Bug 报告
-description: 报告可复现问题
+name: Bug 报告 / Bug report
+description: 报告多格式单 EXE 的可复现问题 / Report a reproducible issue
 title: "[Bug] "
 body:
   - type: markdown
     attributes:
-      value: "请勿上传个人音效、备份、替换记录或未脱敏路径。"
+      value: "请勿上传个人音效、备份、账号信息或未脱敏路径。Do not upload personal effects, backups, credentials or private paths."
   - type: input
     id: version
     attributes:
-      label: 版本与分支
-      placeholder: "0.2.0 / 原版或多格式支线"
+      label: 版本与系统 / Version and OS
+      placeholder: "0.2.1 multiformat single EXE / Windows x64"
     validations:
       required: true
   - type: textarea
     id: steps
     attributes:
-      label: 复现步骤与实际结果
+      label: 复现步骤与实际结果 / Steps and actual result
     validations:
       required: true
   - type: textarea
     id: expected
     attributes:
-      label: 期望结果
+      label: 期望结果 / Expected result
   - type: textarea
     id: logs
     attributes:
-      label: 脱敏日志与合成样本说明
+      label: 脱敏日志与合成样本 / Redacted logs and synthetic samples

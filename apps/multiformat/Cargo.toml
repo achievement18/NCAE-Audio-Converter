@@ -1,7 +1,9 @@
 [package]
 name = "ncae-tool"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2021"
+license = "GPL-3.0-only"
+repository = "https://github.com/achievement18/NCAE-Audio-Converter"
 description = "NetEase NCAE audio effect reverse-encryption core and CLI"
 
 [[bin]]

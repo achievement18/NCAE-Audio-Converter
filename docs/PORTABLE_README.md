@@ -1,18 +1,17 @@
-# NCAE 音效转换 · 便携版
+# 单 EXE 发行说明 / Single-EXE distribution
 
-直接双击本目录的 **NCAE音效转换.exe**。
-需要更多格式时，运行 **NCAE音效转换-多格式支线.exe**。
+正式发行只提供多格式版：下载一个 EXE 即可运行，无需额外安装 Python 或携带运行时文件夹。
 
-整个文件夹可一起移动。不要只复制一个 EXE，也不要移除 runtime、converter 或运行库 DLL。两种版本保持独立，不要同时替换同一个音效。
+Only the multiformat edition is released. Download one EXE; no separate Python installation or accompanying runtime folder is required.
 
-## 文件与操作
-- 默认备份后替换，只写目标和首次 .bak，不额外导出副本。
-- 更多操作中的导出保存到系统 Downloads。
-- 源文件转 WAV 沿用源文件名；解密导出按音效库名称；重名自动编号。
-- 取消直接替换后，仅生成的文件存放在本目录 generated。
-- 预览页签只读，不改变模块开关；JSON 曲线不等同于整套音效实测响应。
+转换后端按需释放到 `%LOCALAPPDATA%\NCAEAudioConverter\runtime`，不是完全不落地执行。关闭程序后可删除缓存，下次自动生成。不要删除正在使用的缓存。
 
-## 本机数据
-公开发行包不包含音效、备份或替换记录。如果此文件夹另有 legacy-backups 和 replacement_records.json，它们是本机迁移数据，不要上传到 GitHub。
+The backend extracts on demand to that local cache, so execution is not entirely in-memory. Remove it only while the application is closed; it is regenerated when needed.
 
-命令行工具位于 tools。许可及依赖声明位于 licenses，以及 runtime/converter 的组件许可文件中。
+默认生成会备份并替换目标；首次 `.bak` 保存在原音效旁。正常替换不额外导出。显式导出默认到 Downloads；仅生成到 EXE 旁的 generated。预览只读，不会切换真实模块。
+
+Generate defaults to backup/replacement, retaining the first adjacent `.bak`. Normal replacement makes no extra export. Explicit exports default to Downloads; generate-only output goes beside the EXE under generated. Previews are read-only.
+
+完整中英文文档见仓库 README / README.en.md 及 docs，解密来源为 AllenHeartcore/audioeffect-ncm，按 GPL v3.0 保留许可。对应源码随版本提供。
+
+See the repository README / README.en.md and docs for full bilingual guidance. Decryption originates from AllenHeartcore/audioeffect-ncm; GPL v3.0 and third-party notices are retained. Corresponding source accompanies each release.

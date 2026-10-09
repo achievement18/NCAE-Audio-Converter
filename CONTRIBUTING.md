@@ -1,10 +1,21 @@
-# 参与开发
+# 参与开发 / Contributing
 
-1. 使用 Windows x64、Rust 1.98.1 或兼容更新版本，以及 Windows SDK/MSVC 构建工具。
-2. 阅读 docs/BUILD.md，分别构建 apps/stable 与 apps/multiformat。
-3. 多格式改动仅放到 multiformat；共用 UI 修复需分别同步并测试。
-4. 新增格式应提供格式定义或验证样本，不猜测私有 IRS、PEQ 类型或任意 EQ 预设的声音行为。
-5. 测试只使用合成数据；不得自动替换真实网易云文件。
-6. 运行格式检查、测试及发布内容检查后提交 PR。
+## 中文
 
-PR 应说明行为变化、影响版本、验证步骤与兼容性限制。不要提交 target、dist、运行时二进制、个人路径、音效备份、替换记录或未获授权的音频样本。
+1. 阅读 README、docs/BUILD.md、docs/FORMATS.md 与 docs/ATTRIBUTION.md。
+2. 正式发行目标仅为 `apps/multiformat`；不要把历史稳定版重新放进发行包。
+3. 更改转换语义时补充合成数据回归测试；不要在自动测试中替换真实音效。
+4. 保留 GPL v3.0 和第三方署名，不猜测私有 IRS、未知 PEQ 类型或任意 EQ 预设的声音行为。
+5. 文档功能变更需同步中文与英文。英文文档不代表 UI 已翻译。
+6. 运行格式检查、Rust 测试与单 EXE 自测。发布禁止跳过测试。
+7. PR 描述行为变化、验证结果和限制；不提交 token、个人路径、缓存、备份或未获授权样本。
+
+## English
+
+1. Read the README, build/format guides and attribution notes.
+2. Release only `apps/multiformat`; do not reintroduce historical stable binaries.
+3. Add synthetic regressions for conversion changes. Never target real effects in automated tests.
+4. Retain GPL v3.0 and third-party notices. Do not guess private formats, PEQ types or preset rendering behavior.
+5. Update both Chinese and English documentation for user-facing changes. English docs do not imply an English UI.
+6. Run formatting, Rust tests and standalone smoke tests; do not skip tests for a release.
+7. Explain behavior, verification and limitations in PRs. Exclude tokens, private paths, caches, backups and unauthorized samples.

@@ -1,3 +1,6 @@
+//! Decryption research/algorithm: AllenHeartcore/audioeffect-ncm (GNU GPL v3.0).
+//! https://github.com/AllenHeartcore/audioeffect-ncm — see docs/ATTRIBUTION.md.
+//! Rust port and subsequent extensions; modified 2026-10-09. Not an upstream release.
 //! NCAE 反向加密核心模块。
 //!
 //! NCAE 文件结构：

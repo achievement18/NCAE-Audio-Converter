@@ -412,6 +412,27 @@ impl eframe::App for NcaeGuiApp {
 }
 
 fn main() -> eframe::Result<()> {
+    let args: Vec<_> = std::env::args_os().collect();
+    if args.get(1).is_some_and(|arg| arg == "--self-test") {
+        let result = args
+            .get(2)
+            .ok_or_else(|| anyhow::anyhow!("Missing self-test report path"))
+            .and_then(|path| ncae_tool::format_bridge::single_exe_self_test(Path::new(path)));
+        if let Err(error) = result {
+            if let Some(path) = args.get(2) {
+                let _ = std::fs::write(
+                    path,
+                    format!(
+                        "{{\"ok\":false,\"error\":{}}}",
+                        serde_json::to_string(&format!("{error:#}")).unwrap()
+                    ),
+                );
+            }
+            std::process::exit(1);
+        }
+        return Ok(());
+    }
+
     #[cfg(target_os = "windows")]
     {
         let app_id: Vec<u16> = "NCAE.AudioEffect.Workbench.MultiFormat"
@@ -436,7 +457,7 @@ fn main() -> eframe::Result<()> {
         ..Default::default()
     };
     eframe::run_native(
-        "NCAE 多格式支线 · 独立版本",
+        "NCAE 音效转换 · 多格式版",
         options,
         Box::new(|cc| Ok(Box::new(NcaeGuiApp::new(cc)))),
     )

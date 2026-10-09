@@ -1,21 +1,25 @@
-# 更新记录
+# 更新记录 / Changelog
 
-## [0.2.0] - 2026-10-09
+## 0.2.1 — 2026-10-09
 
-### 新增
-- 原版与多格式支线独立发布，统一便携目录。
-- IR/JSON 原生预览与只读模块页签。
-- 源文件转 WAV、统一导出完成提示及防覆盖命名。
-- 系统主题、手动主题与过渡/悬停动画。
-- GitHub 构建流程、隐私检查和校验文件。
+### 中文
+- 正式发行仅保留多格式版，不再包含第二个稳定版 EXE。
+- 将多格式运行时、依赖及许可内嵌至单 EXE，首次转换后台释放，后续校验并复用本地缓存。
+- 静态链接应用 C/C++ 运行库，增加 EXE 导入表与隔离目录自测。
+- 完整补充中英文介绍、操作、格式、构建和来源说明。
+- 明确解密源于 AllenHeartcore/audioeffect-ncm，保留 GPL v3.0、第三方许可和对应源码。
+- 这次主要改变分发形式；原有音效转换、备份、预览和 UI 操作继续保留。
 
-### 修复
-- 耗时文件操作移至后台，避免阻塞 UI。
-- 日志反复收放后高度缩小。
-- 替换后列表与预览未及时刷新。
-- 普通替换错误地额外输出到 Downloads。
-- 便携目录中的旧备份记录可使用相对路径。
+### English
+- Distribute only the multiformat edition, without a second stable executable.
+- Embed backend, dependencies and notices in one EXE; extract on demand and validate/reuse the local cache.
+- Statically link the application's C/C++ runtime; add PE-import and isolated EXE-only smoke checks.
+- Expand Chinese/English introduction, usage, formats, build and attribution documentation.
+- Credit AllenHeartcore/audioeffect-ncm for decryption; retain GPL v3.0, third-party notices and corresponding source.
+- Existing conversion, backup, preview and UI functionality is retained; the main change is distribution.
 
-### 说明
-- 默认备份后直接替换。源文件转换仍只在显式操作时执行。
-- 个人备份、真实音效与替换记录不包含在公开发行资产中。
+## 0.2.0 — 2026-10-09（内部整理 / internal preparation）
+
+两版本便携目录、IR/JSON 预览、源文件转 WAV、自动刷新、亮暗动效和可调日志。曾上传私有草稿，未作为本次公开发行版本保留。
+
+Two-variant portable preparation, IR/JSON previews, source-to-WAV, automatic refresh, light/dark transitions and resizable logs. Uploaded as a private draft; not retained as this public distribution.

@@ -1,11 +1,11 @@
-## 改动
+## 改动 / Changes
 
-## 影响版本
-- [ ] 原版
-- [ ] 多格式支线
+## 验证 / Validation
+- [ ] 格式检查和测试通过 / Formatting and tests pass
+- [ ] 已运行单 EXE 自测 / Single-EXE smoke tests pass
+- [ ] 没有使用真实用户文件做破坏性测试 / No destructive tests on personal files
+- [ ] 没有提交个人数据、备份、凭据或缓存 / No personal data, backups, credentials or caches
+- [ ] 已同步中英文文档并说明限制 / Bilingual documentation and limitations updated
+- [ ] 发行仅含多格式 EXE / Release contains only the multiformat executable
 
-## 验证
-- [ ] 格式检查和测试通过
-- [ ] 没有使用真实用户文件做破坏性测试
-- [ ] 没有提交运行时、个人数据、备份或本机路径
-- [ ] 已说明格式/精度/模型限制
+## 已知限制 / Known limitations

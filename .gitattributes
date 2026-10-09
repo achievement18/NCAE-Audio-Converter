@@ -14,3 +14,7 @@
 *.irs binary
 *.flac binary
 *.npz binary
+
+# Preserve upstream license bytes and whitespace verbatim.
+licenses/** -text -whitespace
+LICENSE -text -whitespace

@@ -33,6 +33,10 @@ pub fn is_audio_input(path: &Path) -> Result<bool> {
 }
 
 fn backend_home() -> Result<PathBuf> {
+    if let Some(home) = crate::embedded_runtime::home()? {
+        return Ok(home);
+    }
+
     let executable = std::env::current_exe()?;
     for parent in executable
         .parent()
@@ -56,13 +60,17 @@ pub fn convert_to_wav(source: &Path, output: &Path, float32: bool) -> Result<ser
         bail!("这是参数 JSON，不是 ir.samples.v1 采样数据，不能直接转换为 WAV");
     }
     let home = backend_home()?;
-    let mut command = Command::new(home.join("runtime/python.exe"));
+    // Canonical Windows paths carry the extended-length prefix. Keep that prefix
+    // on both executable and script so Python can import deeply nested .pyd files.
+    let python = std::fs::canonicalize(home.join("runtime/python.exe"))?;
+    let bridge = std::fs::canonicalize(home.join("converter/bridge.py"))?;
+    let mut command = Command::new(python);
     command
         .arg("-I")
         .arg("-B")
         .arg("-X")
         .arg("utf8")
-        .arg(home.join("converter/bridge.py"))
+        .arg(bridge)
         .arg(source)
         .arg(output);
     if float32 {
@@ -190,4 +198,30 @@ pub fn export_source_wav(source: &Path, directory: &Path) -> Result<(PathBuf, se
     let output = crate::export_source_bytes(directory, source, "wav", &std::fs::read(file)?)?;
     metadata["path"] = serde_json::Value::String(output.display().to_string());
     Ok((output, metadata))
+}
+
+/// Non-GUI validation entry point used to verify the actual standalone EXE.
+pub fn single_exe_self_test(report: &Path) -> Result<()> {
+    let home = backend_home()?;
+    let base = report
+        .parent()
+        .context("Self-test report needs a parent directory")?;
+    std::fs::create_dir_all(base)?;
+    let input = report.with_extension("input.wav");
+    let output = report.with_extension("output.wav");
+    let samples = [0.0f32, 0.25, -0.5, 1.0];
+    std::fs::write(&input, crate::wav::write_wav_float32(&samples, 48000, 1))?;
+    let metadata = convert_to_wav(&input, &output, true)?;
+    let audio = crate::wav::parse_wav(&std::fs::read(&output)?)?;
+    if audio.sample_rate != 48000 || audio.channels != 1 || audio.samples != samples {
+        bail!("Standalone conversion self-test mismatch");
+    }
+    std::fs::write(
+        report,
+        serde_json::to_vec_pretty(&serde_json::json!({
+            "ok": true, "runtime": home, "metadata": metadata,
+            "version": env!("CARGO_PKG_VERSION")
+        }))?,
+    )?;
+    Ok(())
 }
