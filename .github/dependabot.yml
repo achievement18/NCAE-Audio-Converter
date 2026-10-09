@@ -1,0 +1,14 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+  - package-ecosystem: cargo
+    directory: /apps/stable
+    schedule:
+      interval: monthly
+  - package-ecosystem: cargo
+    directory: /apps/multiformat
+    schedule:
+      interval: monthly

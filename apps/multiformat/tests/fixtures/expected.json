@@ -1,0 +1,380 @@
+[
+  {
+    "path": "input_1.irs",
+    "channels": 1,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      0,
+      0.75
+    ]
+  },
+  {
+    "path": "input_1.flac",
+    "channels": 1,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      0,
+      0.75
+    ]
+  },
+  {
+    "path": "input_1.aiff",
+    "channels": 1,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      0,
+      0.75
+    ]
+  },
+  {
+    "path": "input_1.au",
+    "channels": 1,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      0,
+      0.75
+    ]
+  },
+  {
+    "path": "input_1.caf",
+    "channels": 1,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      0,
+      0.75
+    ]
+  },
+  {
+    "path": "input_1.w64",
+    "channels": 1,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      0,
+      0.75
+    ]
+  },
+  {
+    "path": "input_1.rf64",
+    "channels": 1,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      0,
+      0.75
+    ]
+  },
+  {
+    "path": "input_1.json",
+    "channels": 1,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      0,
+      0.75
+    ]
+  },
+  {
+    "path": "input_1.npz",
+    "channels": 1,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      0,
+      0.75
+    ]
+  },
+  {
+    "path": "input_2.irs",
+    "channels": 2,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      -0.25,
+      0,
+      0.0625,
+      0.75,
+      -0.75
+    ]
+  },
+  {
+    "path": "input_2.flac",
+    "channels": 2,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      -0.25,
+      0,
+      0.0625,
+      0.75,
+      -0.75
+    ]
+  },
+  {
+    "path": "input_2.aiff",
+    "channels": 2,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      -0.25,
+      0,
+      0.0625,
+      0.75,
+      -0.75
+    ]
+  },
+  {
+    "path": "input_2.au",
+    "channels": 2,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      -0.25,
+      0,
+      0.0625,
+      0.75,
+      -0.75
+    ]
+  },
+  {
+    "path": "input_2.caf",
+    "channels": 2,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      -0.25,
+      0,
+      0.0625,
+      0.75,
+      -0.75
+    ]
+  },
+  {
+    "path": "input_2.w64",
+    "channels": 2,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      -0.25,
+      0,
+      0.0625,
+      0.75,
+      -0.75
+    ]
+  },
+  {
+    "path": "input_2.rf64",
+    "channels": 2,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      -0.25,
+      0,
+      0.0625,
+      0.75,
+      -0.75
+    ]
+  },
+  {
+    "path": "input_2.json",
+    "channels": 2,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      -0.25,
+      0,
+      0.0625,
+      0.75,
+      -0.75
+    ]
+  },
+  {
+    "path": "input_2.npz",
+    "channels": 2,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      -0.25,
+      0,
+      0.0625,
+      0.75,
+      -0.75
+    ]
+  },
+  {
+    "path": "input_4.irs",
+    "channels": 4,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      -0.25,
+      0.5,
+      -0.5,
+      0,
+      0.0625,
+      -0.125,
+      0.25,
+      0.75,
+      -0.75,
+      0.125,
+      -0.125
+    ]
+  },
+  {
+    "path": "input_4.flac",
+    "channels": 4,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      -0.25,
+      0.5,
+      -0.5,
+      0,
+      0.0625,
+      -0.125,
+      0.25,
+      0.75,
+      -0.75,
+      0.125,
+      -0.125
+    ]
+  },
+  {
+    "path": "input_4.aiff",
+    "channels": 4,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      -0.25,
+      0.5,
+      -0.5,
+      0,
+      0.0625,
+      -0.125,
+      0.25,
+      0.75,
+      -0.75,
+      0.125,
+      -0.125
+    ]
+  },
+  {
+    "path": "input_4.au",
+    "channels": 4,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      -0.25,
+      0.5,
+      -0.5,
+      0,
+      0.0625,
+      -0.125,
+      0.25,
+      0.75,
+      -0.75,
+      0.125,
+      -0.125
+    ]
+  },
+  {
+    "path": "input_4.caf",
+    "channels": 4,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      -0.25,
+      0.5,
+      -0.5,
+      0,
+      0.0625,
+      -0.125,
+      0.25,
+      0.75,
+      -0.75,
+      0.125,
+      -0.125
+    ]
+  },
+  {
+    "path": "input_4.w64",
+    "channels": 4,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      -0.25,
+      0.5,
+      -0.5,
+      0,
+      0.0625,
+      -0.125,
+      0.25,
+      0.75,
+      -0.75,
+      0.125,
+      -0.125
+    ]
+  },
+  {
+    "path": "input_4.rf64",
+    "channels": 4,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      -0.25,
+      0.5,
+      -0.5,
+      0,
+      0.0625,
+      -0.125,
+      0.25,
+      0.75,
+      -0.75,
+      0.125,
+      -0.125
+    ]
+  },
+  {
+    "path": "input_4.json",
+    "channels": 4,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      -0.25,
+      0.5,
+      -0.5,
+      0,
+      0.0625,
+      -0.125,
+      0.25,
+      0.75,
+      -0.75,
+      0.125,
+      -0.125
+    ]
+  },
+  {
+    "path": "input_4.npz",
+    "channels": 4,
+    "sample_rate": 48000,
+    "samples": [
+      0.125,
+      -0.25,
+      0.5,
+      -0.5,
+      0,
+      0.0625,
+      -0.125,
+      0.25,
+      0.75,
+      -0.75,
+      0.125,
+      -0.125
+    ]
+  }
+]

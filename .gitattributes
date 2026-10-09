@@ -1,0 +1,16 @@
+* text=auto
+*.rs text eol=lf
+*.toml text eol=lf
+*.lock text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.ps1 text eol=lf
+*.py text eol=lf
+*.js text eol=lf
+*.ico binary
+*.png binary
+*.rgba binary
+*.wav binary
+*.irs binary
+*.flac binary
+*.npz binary
